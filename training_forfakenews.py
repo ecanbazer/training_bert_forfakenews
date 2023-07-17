@@ -312,9 +312,9 @@ for epoch_i in range(0, epochs):
         #   [0]: input ids 
         #   [1]: attention masks
         #   [2]: labels 
-        b_input_ids = batch[0].to(device)
-        b_input_mask = batch[1].to(device)
-        b_labels = batch[2].to(device)
+        b_input_ids = batch[0] #.to(device)
+        b_input_mask = batch[1] #.to(device)
+        b_labels = batch[2] #.to(device)
 
         # Always clear any previously calculated gradients before performing a
         # backward pass. PyTorch doesn't do this automatically because 
