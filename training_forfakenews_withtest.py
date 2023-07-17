@@ -1,4 +1,5 @@
 import torch
+import sklearn
 
 # If there's a GPU available...
 if torch.cuda.is_available():    
