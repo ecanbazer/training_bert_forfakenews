@@ -18,6 +18,9 @@ else:
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+def lower_str(s):
+        return s.lower()
+
 df = pd.read_csv('fake_or_real_news.csv')
 X = df['text'].apply(lower_str)
 y = df['label']
@@ -88,7 +91,7 @@ dataset = TensorDataset(input_ids, attention_masks, labels)
 # Calculate the number of samples to include in each set.
 train_size = int(0.7 * len(dataset))
 val_size = int(0.1 * len(dataset))
-test_size = int(0.2 * len(dataset))
+test_size = len(dataset) - (train_size + val_size)
 
 # Divide the dataset by randomly selecting samples.
 train_dataset, val_dataset, test_dataset = random_split(dataset, [train_size, val_size, test_size])
